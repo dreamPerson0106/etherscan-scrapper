@@ -20,7 +20,7 @@ def get_info(hash):
     # driver.execute_script("window.open('');")
     # driver.switch_to.window(driver.window_handles[1])
     driver.get(f'https://etherscan.io/tx/{hash}')
-    print(driver)
+    print(driver.page_source)
     try: 
         driver.find_element(By.CSS_SELECTOR, '#ContentPlaceHolder1_maintable .card:first-child #ContentPlaceHolder1_divTimeStamp span[data-bs-toggle]')
         driver.close()
