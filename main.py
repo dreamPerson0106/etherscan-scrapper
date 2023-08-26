@@ -31,4 +31,3 @@ except Exception as error:
 
 time.sleep(10)
 print(driver.page_source)
-time.sleep(100)
