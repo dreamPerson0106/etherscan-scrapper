@@ -29,6 +29,6 @@ except Exception as error:
     print(error)
 
 
-time.sleep(5)
+time.sleep(10)
 print(driver.page_source)
 time.sleep(100)
