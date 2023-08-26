@@ -16,6 +16,7 @@ def interceptor(request):
 
 @app.route('/<hash>')
 def get_info(hash):
+    print(hash)
     driver.get(f'https://etherscan.io/tx/{hash}')
     try: 
         driver.find_element(By.CSS_SELECTOR, '#ContentPlaceHolder1_maintable .card:first-child #ContentPlaceHolder1_divTimeStamp span[data-bs-toggle]')
