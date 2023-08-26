@@ -17,8 +17,8 @@ def interceptor(request):
 @app.route('/<hash>')
 def get_info(hash):
     print(hash)
-    driver.execute_script("window.open('');")
-    driver.switch_to.window(driver.window_handles[1])
+    # driver.execute_script("window.open('');")
+    # driver.switch_to.window(driver.window_handles[1])
     driver.get(f'https://etherscan.io/tx/{hash}')
     print(driver)
     try: 
