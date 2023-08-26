@@ -17,17 +17,13 @@ try:
         "useAutomationExtension", False)
     chrome_options.add_experimental_option(
         "excludeSwitches", ["enable-automation"])
-    driver = Chrome(options=chrome_options)
-    driver.get("https://etherscan.io")
+    driver = Chrome( options=chrome_options)
+    driver.implicitly_wait(3)
+    driver.get("https://etherscan.io/tx/0x3b7f8bff36d84a932f4c48bed8e55b8a03733ef40f98dfc79efe2dd879fd35bb")
 
-
-    WebDriverWait(driver,10).until(EC.frame_to_be_available_and_switch_to_it(
-        (By.CSS_SELECTOR, "iframe[title='Widget containing a Cloudflare security challenge']")))
-    WebDriverWait(driver, 10).until(EC.element_to_be_clickable(
-        (By.CSS_SELECTOR, "label.ctp-checkbox-label"))).click()
 except Exception as error:
     print(error)
 
+print(driver.find_element(By.CSS_SELECTOR, "div#ContentPlaceHolder1_divTimeStamp").text)
 
-time.sleep(10)
-print(driver.page_source)
+# print(driver.page_source)
