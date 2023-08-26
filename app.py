@@ -17,9 +17,14 @@ def interceptor(request):
 @app.route('/<hash>')
 def get_info(hash):
     print(hash)
+    driver.execute_script("window.open('');")
+    driver.switch_to.window(driver.window_handles[1])
     driver.get(f'https://etherscan.io/tx/{hash}')
+    print(driver)
     try: 
         driver.find_element(By.CSS_SELECTOR, '#ContentPlaceHolder1_maintable .card:first-child #ContentPlaceHolder1_divTimeStamp span[data-bs-toggle]')
+        driver.close()
         return jsonify({"status": True})
     except:
+        driver.close()
         return jsonify({"status": False})
