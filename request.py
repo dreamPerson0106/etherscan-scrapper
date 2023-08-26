@@ -11,11 +11,13 @@ headers = {
     "X-Requested-With":"XMLHttpRequest"
 }
 
-response = requests.get("https://etherscan.io/tx/0x3b7f8bff36d84a932f4c48bed8e55b8a03733ef40f98dfc79efe2dd879fd35bb", headers = headers)
+response = requests.get("https://etherscan.io/tx/0x364d5c560aa6e2ec733e5f4a4c518e69a3a2d697cc5176882b073b0b75ed53ae", headers = headers)
 soup = bs4.BeautifulSoup(response.content, 'html.parser')
-print(soup)
 
 text = soup.select_one("div#ContentPlaceHolder1_divTimeStamp span[data-bs-toggle='tooltip']")
-print(text.text)
+if text:
+    print(True)
+else:
+    print(False)
 
 
